@@ -11,8 +11,6 @@ response = requests.get("https://en.wikipedia.org/wiki/Main_Page",headers=header
 content = response.content
 soup = BeautifulSoup(content,"html.parser")
 
-#print(soup)
-
 link_set = set()
 final_list =  []
 links = soup.find_all("a")
