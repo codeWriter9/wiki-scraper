@@ -14,6 +14,7 @@ soup = BeautifulSoup(content,"html.parser")
 #print(soup)
 
 link_set = set()
+final_list =  []
 links = soup.find_all("a")
 for link in links:
     href = link.get('href')
@@ -23,8 +24,6 @@ for link in links:
         continue
     elif href:
         link_set.add('https://en.wikipedia.org' + href)
-    #continue
+ 
 
-for link_s in link_set:
-    if not link_s.endswith('/wiki/') and link_s.startswith('https'):
-        print(link_s)
+print(pandas.DataFrame(final_list).to_csv())
