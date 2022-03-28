@@ -23,7 +23,6 @@ for link in links:
     elif href and href.endswith('/wiki/'):
         continue
     elif href:
-        link_set.add('https://en.wikipedia.org' + href)
- 
+        link_set.add('https://en.wikipedia.org' + href) 
 
-print(pandas.DataFrame(final_list).to_csv())
+print(pandas.DataFrame([ link_s for link_s in link_set if not link_s.endswith('/wiki/') and link_s.startswith('https') ]).to_csv())
